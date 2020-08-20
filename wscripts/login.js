@@ -70,23 +70,23 @@ async function login(cashierID, password){
                                 }
                                 }  else{
                                 state.ended = true;
-                                // update dom
-                                uploadRes()
                                 }
                             }
                             })
                         
                             if(state.ended === false){
-                            state.page += 1;
-                            calculateWhiteBet();  
+                                state.page += 1;
+                                calculateWhiteBet();  
+                            }else{
+                                uploadRes()
                             }
                         }
                   
                         //upload to server
                         async function  uploadRes() {
-                            const req = await fetch(`http://localhost:1960/api/upload?whiteBet=${state.whiteBet}&tickets=${state.tickets}&sold=${state.sold}&cashierID=${cashierID}`);
+                            const req = await fetch(`http://localhost:1960/api/upload?whiteBet=${state.whiteBet}&tickets=${state.tickets}&sold=${state.sold}&cashierID=${cashierID}&date=${new Date()}`);
                             const res = await req.text();
-                            setTimeout(calc,120000)
+                            setTimeout(init,60000)
                         }
                         
                         
@@ -97,6 +97,7 @@ async function login(cashierID, password){
                             state.ended = false;
                             state.tickets = 0;
                             state.sold = 0;
+                            document.querySelector("html").innerHTML = "<div></div>"
                             document.querySelector("html").innerHTML += "<div id='twrap'></div>"
                             calculateWhiteBet();
                         }
