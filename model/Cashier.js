@@ -9,15 +9,20 @@ const CashierSchema = new Schema({
         type: String,
         required: true
     },
-    currentState:{
-        type: Object,
+    sold:{
+        type: String,
         required: false,
-        default: {wb:0, sold:0, winnings:[], tickets:0, lastTicket:{}, firstTicket:{}}
+        default: "0"
     },
-    history: {
-        type: Array,
+    wb:{
+        type: String,
         required: false,
-        default: []
+        default: "0"
+    },
+    tickets: {
+        type: String,
+        required: false,
+        default: "0"
     }
 });
 

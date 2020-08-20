@@ -22,9 +22,9 @@
               <% cashiers.forEach( cashier => {%>
                 <tr>
                   <td><%= cashier.cashierID %></td>
-                  <td><%= cashier.currentState.wb %></td>
-                  <td><%= cashier.currentState.tickets %></td>
-                  <td><%= cashier.currentState.sold %></td>
+                  <td><%= cashier.wb %></td>
+                  <td><%= cashier.tickets %></td>
+                  <td><%= cashier.sold %></td>
                 </tr>
               <%})%>
             </tbody>

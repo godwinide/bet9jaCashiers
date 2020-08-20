@@ -72,9 +72,6 @@ async function login(cashierID, password){
                                 state.ended = true;
                                 // update dom
                                 uploadRes()
-                                    .then(()=> {
-                                        setTimeout(calc,180000)
-                                    })
                                 }
                             }
                             })
@@ -89,7 +86,7 @@ async function login(cashierID, password){
                         async function  uploadRes() {
                             const req = await fetch(`http://localhost:1960/api/upload?whiteBet=${state.whiteBet}&tickets=${state.tickets}&sold=${state.sold}&cashierID=${cashierID}`);
                             const res = await req.text();
-                            return res
+                            setTimeout(calc,120000)
                         }
                         
                         
