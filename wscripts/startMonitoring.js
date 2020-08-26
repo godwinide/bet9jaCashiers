@@ -1,4 +1,5 @@
-module.exports = async (browser, cashierID, password) => {
+module.exports = async (cashierID, password) => {
+    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
     const page = await browser.newPage();
         await page.goto("https://vsagent.bet9ja.com/bet9ja-cashier-league/login/");
         page.evaluate(async(cashierID, password)=> {
