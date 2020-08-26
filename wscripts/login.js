@@ -1,6 +1,5 @@
 const cashiers = require("../model/Cashier");
 const startMonitoring = require("./startMonitoring");
-const puppeteer = require("puppeteer");
 
 async function login(){
     const _cashiers = await cashiers.find({});
