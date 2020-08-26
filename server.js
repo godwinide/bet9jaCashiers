@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
+const login = require("./wscripts/login");
 
 require("./db")()
 require("./middlewares")(app);
-// require("./app")(app);
 require("./urls")(app);
+
+// start monitoring
+login()
 
 const PORT = process.env.PORT || 1960;
 

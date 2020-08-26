@@ -1,10 +1,24 @@
 const router = require("express").Router();
 const Cashier = require("../model/Cashier");
-const login = require("../wscripts/login")
+
 
 router.get("/", async (req,res) => {
-    const context = {title: "Enaland Virtual Admin", cashiers:[]};
+    const context = {title: "Enaland Virtual Admin",
+     cashiers:[],
+     whiteBet: 0,
+     sold: 0,
+     tickets: 0,
+    };
+
+
+
     context.cashiers = await Cashier.find({});
+    context.cashiers.forEach(cashier => {
+        context.whiteBet += parseInt(cashier.wb);
+        context.sold += parseInt(cashier.sold);
+        context.tickets += parseInt(cashier.tickets);
+    });
+    
     res.render("index", context);
 });
 
@@ -51,7 +65,6 @@ router.post("/register", async(req,res) => {
             password: password.trim()
         });
         await newCashier.save();
-        login(cashierID, password);
         return res.redirect("/");
     }
 })

@@ -7,7 +7,7 @@
         <div class="table-responsive">
           <table class="table" cellspacing="0" width="100%">
             <thead>
-              <tr>
+              <tr class="bg-dark text-white">
                 <th>ID
                 </th>
                 <th>WhiteBet
@@ -27,6 +27,13 @@
                   <td><%= cashier.sold %></td>
                 </tr>
               <%})%>
+              <tr class="bg-dark text-white">
+                <td>Total</td>
+                <td><%= whiteBet %></td>
+                <td><%= tickets %></td>
+                <td><%= sold %></td>
+              </tr>
+
             </tbody>
           </table>
         </div>
