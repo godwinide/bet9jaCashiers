@@ -84,7 +84,7 @@ module.exports = async (cashierID, password) => {
                         async function  uploadRes() {
                             const req = await fetch(`http://localhost:1960/api/upload?whiteBet=${state.whiteBet}&tickets=${state.tickets}&sold=${state.sold}&cashierID=${cashierID}&date=${new Date()}`);
                             const res = await req.text();
-                            setTimeout(init,120000)
+                            setTimeout(init,60000)
                         }
                         
                         
