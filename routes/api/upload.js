@@ -16,7 +16,6 @@ router.get("/", async (req,res) => {
                 h.sold = sold;
                 h.tickets = tickets;
                 h.wb = whiteBet;
-                h.date = new Date().toDateString()
             }
             return h;
         });  
@@ -24,7 +23,8 @@ router.get("/", async (req,res) => {
         history.push({
             sold,
             tickets, 
-            wb: whiteBet, 
+            wb: whiteBet,
+            date = new Date().toDateString(),
             id: new Date().toDateString().replace(/\s/g, "").toLowerCase()
         });
 
