@@ -24,7 +24,7 @@ router.get("/", async (req,res) => {
             sold,
             tickets, 
             wb: whiteBet,
-            date = new Date().toDateString(),
+            date: new Date().toDateString(),
             id: new Date().toDateString().replace(/\s/g, "").toLowerCase()
         });
 
