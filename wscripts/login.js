@@ -7,13 +7,13 @@ async function login(){
     let index = 0;
 
     let t = setInterval(()=> {
-        if(index === cashiers.length) {
+        if(index === _cashiers.length) {
             clearInterval(t);
             return;
         }
         startMonitoring(_cashiers[index].cashierID, _cashiers[index].password);
         index+=1;
-    }, 15000)
+    }, 5000)
 }
 
 module.exports = login;

@@ -16,6 +16,8 @@
                 </th>
                 <th>Sold
                 </th>
+                <th>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -25,6 +27,9 @@
                   <td><%= cashier.wb %></td>
                   <td><%= cashier.tickets %></td>
                   <td><%= cashier.sold %></td>
+                  <td>
+                    <a href="/detail/<%=cashier.cashierID%>" class="btn btn-info">more</a>
+                  </td>
                 </tr>
               <%})%>
               <tr class="bg-dark text-white">
@@ -32,6 +37,7 @@
                 <td><%= whiteBet %></td>
                 <td><%= tickets %></td>
                 <td><%= sold %></td>
+                <td></td>
               </tr>
 
             </tbody>

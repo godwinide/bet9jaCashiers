@@ -23,7 +23,13 @@ const CashierSchema = new Schema({
         type: String,
         required: false,
         default: "0"
+    },
+    history:{
+        type: Array,
+        required: false,
+        default: []
     }
+
 });
 
 module.exports = Cashier = model("Cashier", CashierSchema);

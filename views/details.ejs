@@ -1,5 +1,5 @@
 <div class="container mx-auto">
-    <h2 class="mt-5">Summary of cashier-01</h2>
+    <h2 class="mt-5"><%= cashier.cashierID %></h2>
     <div class="today container mx-auto">
         <h3 class="text-center my-2">Today's Summary</h3>
         <table id="dtBasicExample1" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -7,30 +7,18 @@
               <tr>
                 <th># of Tickets
                 </th>
-                <th>Current White Bet
+                <th>White Bet
                 </th>
                 <th>Sold
-                </th>
-                <th>
-                    Last Ticket
-                </th>
-                <th>
-                    First Ticket
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>650</td>
-                <td>(N)5400</td>
+                <td><%= cashier.tickets %>%></td>
+                <td>(N)<%= cashier.wb %></td>
                 <td>
-                    (N)800,000
-                </td>
-                <td>
-                    Played at 7:30pm
-                </td>
-                <td>
-                    Played at 7:00am
+                    (N)<%= cashier.sold %>
                 </td>
               </tr>
             </tbody>
@@ -41,12 +29,6 @@
                 <th>Current White Bet
                 </th>
                 <th>Sold
-                </th>
-                <th>
-                    Last Ticket
-                </th>
-                <th>
-                    First Ticket
                 </th>
               </tr>
             </tfoot>
@@ -59,15 +41,9 @@
               <tr>
                 <th># of Tickets
                 </th>
-                <th>Current White Bet
+                <th>White Bet
                 </th>
                 <th>Sold
-                </th>
-                <th>
-                    Last Ticket
-                </th>
-                <th>
-                    First Ticket
                 </th>
                 <th>
                     Date
@@ -75,22 +51,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>650</td>
-                <td>(N)5400</td>
-                <td>
-                    (N)800,000
-                </td>
-                <td>
-                    Played at 7:30pm
-                </td>
-                <td>
-                    Played at 7:00am
-                </td>
-                <td>
-                    18/8/2020
-                </td>
-              </tr>
+              <% cashier.history.reverse().forEach(h => { %>
+                <tr>
+                  <td><%= h.tickets %>%></td>
+                  <td>(N)<%= h.wb %></td>
+                  <td>
+                      (N)<%= h.sold %>
+                  </td>
+                  <td>
+                      <%= h.date %>
+                  </td>
+                </tr>
+              <% }) %>
             </tbody>
             <tfoot>
                 <tr>
@@ -99,12 +71,6 @@
                 <th>Current White Bet
                 </th>
                 <th>Sold
-                </th>
-                <th>
-                    Last Ticket
-                </th>
-                <th>
-                    First Ticket
                 </th>
                 <th>Date</th>
               </tr>
