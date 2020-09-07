@@ -5,12 +5,14 @@ module.exports = async (cashierID, password) => {
     const page = await browser.newPage();
         await page.goto("https://vsagent.bet9ja.com/bet9ja-cashier-league/login/");
         page.evaluate(async(cashierID, password)=> {
+            setTimeout(()=>{
                 let inputU = document.querySelectorAll("input")[0];
                 let inputP = document.querySelectorAll("input")[1];
                 let inputL = document.querySelector("a.btn");
                 inputU.value = cashierID;
                 inputP.value = password;
-                inputL.click();    
+                inputL.click();
+            },1000)
         }, cashierID, password);
 
         setTimeout(()=> {
