@@ -2,7 +2,9 @@
     <h3 class="text-center mt-5">Enaland Bet9ja Cashiers</h3>
     <div>
       <div >
-        <a href="/" class="btn btn-info mb-2">Refresh</a>
+        <a href="/" class="btn btn-info mb-2">Refresh
+        <i class="fas fa-redo-alt"></i>
+        </a>
       </div>
         <div class="table-responsive">
           <table class="table" cellspacing="0" width="100%">
@@ -14,7 +16,7 @@
                 </th>
                 <th>Tickets
                 </th>
-                <th>Sold
+                <th>Stake
                 </th>
                 <th>
                 </th>
@@ -24,19 +26,19 @@
               <% cashiers.forEach( cashier => {%>
                 <tr>
                   <td><%= cashier.cashierID %></td>
-                  <td><%= cashier.wb %></td>
-                  <td><%= cashier.tickets %></td>
-                  <td><%= cashier.sold %></td>
+                  <td class="f-string"><%= cashier.wb %></td>
+                  <td class="f-string"><%= cashier.tickets %></td>
+                  <td class="f-string"><%= cashier.sold %></td>
                   <td>
                     <a href="/detail/<%=cashier.cashierID%>" class="btn btn-info">more</a>
                   </td>
                 </tr>
               <%})%>
-              <tr class="bg-dark text-white">
+              <tr class="bg-dark text-white footer">
                 <td>Total</td>
-                <td><%= whiteBet %></td>
-                <td><%= tickets %></td>
-                <td><%= sold %></td>
+                <td class="f-string"><%= whiteBet %></td>
+                <td class="f-string"><%= tickets %></td>
+                <td class="f-string"><%= sold %></td>
                 <td></td>
               </tr>
 
@@ -45,3 +47,5 @@
         </div>
     </div>
 </div>
+
+<script src="/_js/main.js"></script>

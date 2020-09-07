@@ -1,0 +1,24 @@
+body{
+    background: rgb(255, 255, 255);
+    font-family: 'Courgette', cursive
+}
+
+table{
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 1em;
+}
+
+table th,
+table .footer tr{
+    font-weight: lighter;
+}
+
+@media screen and (max-width: 1000px){
+    table{
+        font-size: .9em;
+    }
+
+    h1,h2,h3,h4{
+        font-size: 1em;
+    }
+}

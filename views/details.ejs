@@ -1,25 +1,25 @@
 <div class="container mx-auto">
     <h4 class="mt-5 text-center"><%= cashier.cashierID %></h4>
     <div class="today container mx-auto">
-        <h3 ">Today's Summary</h3>
+        <h3 ">Today</h3>
 
         <table id="dtBasicExample" class="table" cellspacing="0" width="100%">
-            <thead>
+            <thead class="bg-dark text-white">
               <tr>
                 <th>Tickets
                 </th>
-                <th>White Bet
+                <th>WhiteBet
                 </th>
-                <th>Sold
+                <th>Stake
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><%= cashier.tickets %>%></td>
-                <td>(N)<%= cashier.wb %></td>
-                <td>
-                    (N)<%= cashier.sold %>
+                <td class="f-string"><%= cashier.tickets %>%></td>
+                <td class="f-string"><%= cashier.wb %></td>
+                <td class="f-string">
+                    <%= cashier.sold %>
                 </td>
               </tr>
             </tbody>
@@ -27,15 +27,27 @@
     </div>
     <div class="container mx-auto">
         <h3>History</h3>
+        <div class="filter">
+          <form>
+            <div class="form-group">
+              from <input type="date" id="date1" name="from"> to <input type="date" id="date2" name="to"> <button class="btn btn-dark"
+               style="padding: 2px 5px !important; margin-top: -5px;"
+              >
+                >>
+              </button>
+            </div>
+          </form>
+        </div>
         <div class="table-responsive" style="overflow-x: auto;">
-          <table id="dtBasicExample1" class="table" cellspacing="0" width="100%">
-            <thead>
+          <table id="dtBasicExample2" class="table" cellspacing="0" width="100%">
+            <thead class="bg-dark text-white">
               <tr>
+                <th></th>
                 <th>Tickets
                 </th>
                 <th>WhiteBet
                 </th>
-                <th>Sold
+                <th>Stake
                 </th>
                 <th>
                     Date
@@ -43,20 +55,42 @@
               </tr>
             </thead>
             <tbody>
-              <% cashier.history.reverse().forEach(h => { %>
+              <% history.forEach(h => { %>
                 <tr>
-                  <td><%= h.tickets %>%></td>
-                  <td>(N)<%= h.wb %></td>
-                  <td>
-                      (N)<%= h.sold %>
+                  <td></td>
+                  <td class="f-string tickets"><%= h.tickets %></td>
+                  <td class="f-string wb"><%= h.wb %></td>
+                  <td class="f-string sold">
+                      <%= h.sold %>
                   </td>
-                  <td style="word-wrap: normal;">
-                      <%= new Date(h.date).toLocaleDateString() %>
+                  <td style="word-wrap: normal;" class="date">
+                      <%= h.date %>
                   </td>
                 </tr>
               <% }) %>
             </tbody>
+            <tfoot class="bg-dark text-white">
+                <tr>
+                  <th>Total Page
+                  </th>
+                  <th class="total-tickets f-string">
+                    0
+                  </th>
+                  <th class="total-wb f-string">
+                    0
+                  </th>
+                  <th class="total-sold f-string">
+                    0
+                  </th>
+                  <th>
+                  </th>
+                </tr>
+            </tfoot>
           </table>
         </div>
     </div>
 </div>
+
+<script src="/js/moment.js"></script>
+<script src="/_js/main.js"></script>
+<script src="/_js/details.js"></script>

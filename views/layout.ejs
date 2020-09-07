@@ -3,13 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- MDBootstrap Datatables  -->
-    <link href="css/addons/datatables.min.css" rel="stylesheet">
+    <link href="/css/addons/datatables.min.css" rel="stylesheet">
+    <!-- font awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courgette&family=Squada+One&display=swap" rel="stylesheet">
+    <!-- local styles -->
+    <link rel="stylesheet" href="/_css/style.css">
     <title><%= title %></title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
         <a class="navbar-brand" href="#">Enaland</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -41,7 +48,15 @@
         "pagingType": "simple"
     });
     $('.dataTables_length').addClass('bs-select');
+
+    $('#dtBasicExample2').DataTable({
+        "pagingType": "simple",
+        "order":[[4, "desc"]]
+    });
+    $('.dataTables_length').addClass('bs-select');
     });
     </script>
+
+
   </body>
 </html>

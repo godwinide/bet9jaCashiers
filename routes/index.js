@@ -10,8 +10,6 @@ router.get("/", async (req,res) => {
      tickets: 0,
     };
 
-
-
     context.cashiers = await Cashier.find({});
     context.cashiers.forEach(cashier => {
         context.whiteBet += parseInt(cashier.wb);
@@ -22,12 +20,6 @@ router.get("/", async (req,res) => {
     res.render("index", context);
 });
 
-router.get("/detail/:id", async (req,res) => {
-    const id = req.params.id;
-    const context = {title: "Enaland Virtual Admin || cashier-01", cashier:{}};
-    context.cashier = await Cashier.findOne({cashierID:id});
-    res.render("details", context);
-});
 
 router.get("/register", (req,res) => {
     const context = {title: "Enaland Virtual Admin || Register", cashier:{}};
