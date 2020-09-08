@@ -18,7 +18,9 @@ module.exports = async (cashierID, password) => {
         setTimeout(()=> {
             // new stuff
             page.evaluate((cashierID) => {
-                document.querySelector(".button-admin-title").click();
+                setTimeout(()=>{
+                    document.querySelector(".button-admin-title").click();
+                },3000)
                 setTimeout(()=>{
                     function calc(){
                   
