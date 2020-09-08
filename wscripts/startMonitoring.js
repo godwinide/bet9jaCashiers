@@ -14,7 +14,7 @@ module.exports = async (cashierID, password) => {
                 inputL.click();
             },1000)
         }, cashierID, password);
-
+// 
         setTimeout(()=> {
             // new stuff
             page.evaluate((cashierID) => {
