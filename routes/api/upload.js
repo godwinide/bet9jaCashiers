@@ -35,7 +35,7 @@ router.get("/", async (req,res) => {
         await Cashier.updateOne({cashierID}, {sold, tickets, wb: whiteBet, history: newHistory});
     }
 
-    if(new Date().getHours() >= 0 && new Date().getHours() <= 1){
+    if(!new Date().getHours() >= 0 && new Date().getHours() <= 1){
         await updateCashier();
         return res.json({success:true});
     }
