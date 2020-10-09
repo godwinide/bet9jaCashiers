@@ -20,6 +20,13 @@ router.get("/:id", async (req,res) => {
         context.history = context.cashier.history.slice()
     }
 
+    // sort history
+    context.history.sort((a,b) => {
+        if(new Date(a.date) > new Date(b.date)){
+            return 1
+        }
+    })
+
     setTimeout(()=>{
         res.render("details", context);
     })

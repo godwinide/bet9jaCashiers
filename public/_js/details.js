@@ -42,14 +42,9 @@ function calculatePage(){
 
         formatString();
     })
-
 }
 
-
 setInterval(calculatePage, 500)
-
-
-
 
 date1.value = moment().subtract(7, "days").format("YYYY-MM-DD");
 date2.value = moment().format("YYYY-MM-DD");
