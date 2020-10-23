@@ -50,7 +50,6 @@ setTimeout(()=>{
               }  else{
               state.ended = true;
               // update dom
-              state.whiteBet = state.whiteBet * 0.8
               uploadRes();
               setTimeout(calc,30000)
               }
