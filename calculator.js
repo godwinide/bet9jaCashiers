@@ -44,7 +44,12 @@ setTimeout(()=>{
                   if(win.length > 0 && win.length < 2){
                   state.whiteBet += parseInt(win[0]);
                   }else if(win.length > 1){
-                  state.whiteBet += parseInt(win.slice(win.length - 2));
+                    let w_b = parseInt(win.slice(win.length - 2))
+                    if(w_b <= 50){
+                        state.whiteBet += w_b
+                    }else{
+                        state.whitebet += 50
+                    }
                   }
               }
               }  else{
