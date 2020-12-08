@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 router.get("/", (req,res) => {
-    return res.send("<h1>Loading....</h1>")
+    return res.render("emptyPage", {layout:false})
 })
 
 module.exports = router;

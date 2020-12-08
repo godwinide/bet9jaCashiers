@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Sonto</title>
+    <style>
+        video{
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: cover !important;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <video src="/video/dancers.mp4" autoplay muted></video>
+
+    <script>
+        window.addEventListener("click", e => {
+            document.querySelector("video").volume = 1
+        });
+        const el = document.querySelector("video");
+        const eventObj = document.createEvent("Events");
+        eventObj.initEvent("keyup", true, true);
+        eventObj.which = 39; 
+        eventObj.keyCode = 39;
+        el.dispatchEvent(eventObj);
+    </script>
+</body>
+</html>

@@ -13,6 +13,8 @@ table .footer tr{
     font-weight: lighter;
 }
 
+
+
 @media screen and (max-width: 1000px){
     table{
         font-size: .9em;
