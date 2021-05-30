@@ -14,7 +14,7 @@ module.exports = async (cashierID, password) => {
                 inputL.click();
             },1000)
         }, cashierID, password);
-// 
+
         setTimeout(()=> {
             // new stuff
             page.evaluate((cashierID) => {
@@ -90,7 +90,6 @@ module.exports = async (cashierID, password) => {
                             const res = await req.text();
                             setTimeout(init,60000)
                         }
-                        
                         
                         function init(){
                             // reset state

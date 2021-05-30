@@ -18,6 +18,8 @@
                 </th>
                 <th>Stake
                 </th>
+                <th>Last Updated
+                </th>
                 <th>
                 </th>
               </tr>
@@ -29,6 +31,7 @@
                   <td class="f-string"><%= cashier.wb %></td>
                   <td class="f-string"><%= cashier.tickets %></td>
                   <td class="f-string"><%= cashier.sold %></td>
+                  <td class="f-string"><%= cashier.tickets > 0 ? new Date(cashier.tickets.reverse()[0].date).toLocalDateString() : "No update" %></td>
                   <td>
                     <a href="/detail/<%=cashier.cashierID%>" class="btn btn-info">more</a>
                   </td>
@@ -39,6 +42,8 @@
                 <td class="f-string"><%= whiteBet %></td>
                 <td class="f-string"><%= tickets %></td>
                 <td class="f-string"><%= sold %></td>
+                <td>
+                </td>
                 <td></td>
               </tr>
 

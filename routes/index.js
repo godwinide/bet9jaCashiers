@@ -59,6 +59,49 @@ router.post("/register", async(req,res) => {
         await newCashier.save();
         return res.redirect("/");
     }
-})
+});
+
+router.get("/deleteUser/:id", async (req,res) => {
+    try{
+        const {id} = req.params;
+        await Cashier.deleteOne({_id:id});
+        return res.redirect("/");
+    }
+    catch(err){
+        console.log(err);
+    }
+});
+
+router.get("/updateUser/:id", async (req,res) => {
+    try{
+        const context = {title: "Enaland Virtual Admin || Update User"};
+        const {id} = req.params;
+        const cashier = await Cashier.findOne({_id:id});
+        return res.render("updateUser", {...context, cashier});
+    }
+    catch(err){
+        console.log(err);
+    }
+});
+
+router.post("/updateUser", async (req,res) => {
+    try{
+        const context = {title: "Enaland Virtual Admin || Update User"};
+        const errors = [];
+        const success = [];
+        const {password, cashierID, id} = req.body;
+        if(!password || !id || !cashierID){
+            errors.push({msg: "Please enter password!"})
+            return res.render("updateUser", {...context, errors, success, cashier:{...req.body}});
+        }else{
+            await Cashier.updateOne({_id:id}, {password: password, cashierID});
+            success.push({msg:"Cashier Updated Successfully"})
+            return res.render("updateUser", {...context, errors, success, cashier:{...req.body}});
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+});
 
 module.exports = router;
