@@ -6,7 +6,7 @@ require("./db")()
 require("./middlewares")(app);
 require("./urls")(app);
 
-start monitoring
+// start monitoring
 login()
 
 const PORT = process.env.PORT || 1960;
